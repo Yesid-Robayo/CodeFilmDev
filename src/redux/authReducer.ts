@@ -2,7 +2,7 @@ const initialState = {
     isAuthenticated: false,
     user: null,
   };
-  
+  // autenticacion de usuario
   const authReducer = (state = initialState, action: any) => {
     switch (action.type) {
       case 'LOGIN':

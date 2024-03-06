@@ -1,7 +1,9 @@
+import { LoginComponent } from "../components/LoginComponent";
+
 export function LoginPage() {
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="w-full  h-1/1 bg bg-red-500" style={{height:'100vh'}}>
+        <LoginComponent />
         </div>
     );
 }

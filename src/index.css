@@ -1,3 +1,27 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+::-webkit-scrollbar {
+    width: 12px;
+    /* Cambia el ancho del scrollbar */
+}
+
+/* Personaliza el track (la parte "track" del scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Cambia el fondo del track del scrollbar */
+}
+
+/* Personaliza el handle (la parte "thumb" del scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Cambia el color del thumb del scrollbar */
+}
+
+/* Cambia el color del thumb del scrollbar al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Cambia el color cuando se hace hover */
+}
