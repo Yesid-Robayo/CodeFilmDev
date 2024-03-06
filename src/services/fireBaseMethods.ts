@@ -4,6 +4,7 @@ import { db } from "../config/fireBaseConfig";
 import { coleccion } from "../utils/utilsTypes";
 
 const FirestoreMethods = {
+  // Agregar un documento a una colección
   addStorageFile: async (coleccion: coleccion, datos: any) => {
     try {
       const docRef = await addDoc(collection(db, coleccion), datos);
@@ -12,6 +13,8 @@ const FirestoreMethods = {
       return { success: false, error };
     }
   },
+
+  // Obtener un documento de una colección
   getStorageFile: async (coleccion: coleccion, id: string) => {
     try {
       const docSnap = await getDoc(doc(collection(db, coleccion), id));
@@ -25,6 +28,8 @@ const FirestoreMethods = {
     }
   },
 
+
+// Actualizar un documento de una colección
   updateStorageFile: async (coleccion: coleccion, id: string, newData: any) => {
     try {
       const docRef = doc(collection(db, coleccion), id);
@@ -40,6 +45,8 @@ const FirestoreMethods = {
       return { success: false, error: error };
     }
   },
+
+  // Eliminar un documento de una colección
   deleteStorageFile: async (coleccion: coleccion, id: string) => {
     try {
       const docRef = doc(collection(db, coleccion), id);
@@ -56,6 +63,7 @@ const FirestoreMethods = {
     }
   },
 
+  // Obtener todos los documentos de una colección
   getAllStorage: async (coleccion: coleccion) => {
     try {
       const querySnapshot = await getDocs(collection(db, coleccion));
@@ -69,6 +77,7 @@ const FirestoreMethods = {
     }
   },
 
+  // Buscar un documento en una colección por un campo específico
   searchStorageFile: async (coleccion: coleccion, campo: string, valor: any) => {
     try {
       const q = query(collection(db, coleccion), where(campo, "==", valor));
