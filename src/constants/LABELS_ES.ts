@@ -2,6 +2,8 @@ export const LABELS_ES = {
     /* ------------------A------------- */
     addVideo: 'Agregar Video',
     add: 'Agregar',
+    allVideos: 'Todos los Videos',
+    autor: 'Autor: ',
     alReadyExistUserName: 'Ya existe un usuario con ese nombre',
     alReadyExistEmail: 'Ya existe un usuario con ese correo',
     alReadyVideoName: 'Ya existe un video con ese nombre',
@@ -56,6 +58,7 @@ export const LABELS_ES = {
     missingFields: 'Faltan campos por completar',
     /* ------------------N------------- */
     name: 'Nombre',
+    noVideosFoundForCategory: 'No se encontraron videos para esta categoria',
     notGetCanvas: 'No se pudo obtener el contexto del canvas',
     notMatchpass: 'Las contraseñas no coinciden',
     newpass: 'Nueva Contraseña',
@@ -71,6 +74,8 @@ export const LABELS_ES = {
     /* ------------------S------------- */
     singUpHere: 'Registrate Aquí',
     settings: 'Configuraciones',
+    showMore: 'Ver Más',
+    showLess: 'Ver Menos',
     sureDeleteVideo: '¿Estas seguro de eliminar el video?',
     selectCategory: 'Selecciona una Categoria',
     miAccount: 'Mi Cuenta',
@@ -82,6 +87,7 @@ export const LABELS_ES = {
     user: 'Usuario',
     /* ------------------V------------- */
     videos: 'Videos',
+    videoCategories: 'Categorias de Videos',
     videoPreview: 'Vista Previa del Video',
     videoName: 'Nombre del Video',
     videoReview: 'Reseña del Video',

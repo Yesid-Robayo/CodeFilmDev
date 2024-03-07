@@ -1,18 +1,18 @@
-import { UseVideosPageLogic } from "./UseVideosPageLogic";
 import { AddVideoComponent } from '../../components/addVideo/AddVideo';
 import { EditVideoComponent } from "../../components/editVideo/EditVideoComponent";
 import { DeleteVideoComponent } from "../../components/deleteVideo/DeleteVideoComponent";
+import { UseManageVideosPageLogic } from './UseManageVideosPageLogic';
 
 
 
-export const VideosPage = () => {
+export const ManageVideosPage = () => {
     const {
         styles,
         labels,
         renderButtons,
         activeTab,
 
-    } = UseVideosPageLogic();
+    } = UseManageVideosPageLogic();
 
 
 

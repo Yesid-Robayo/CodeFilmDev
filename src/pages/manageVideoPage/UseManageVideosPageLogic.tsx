@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLabels, useStyles } from "../../hooks/contextHooks";
 
-export const UseVideosPageLogic = () => {
+export const UseManageVideosPageLogic = () => {
     const styles = useStyles();
     const labels = useLabels();
     const [activeTab, setActiveTab] = useState("add");

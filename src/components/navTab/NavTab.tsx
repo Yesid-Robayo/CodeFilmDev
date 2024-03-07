@@ -14,6 +14,8 @@ export const NavTab = () => {
         isMenuOpenAccount,
         changeLanguaje,
         isOpenDrop,
+        goAllVideos,
+        goMyVideos,
         changeDrop,
         goCategories,
         goHome,
@@ -29,7 +31,7 @@ export const NavTab = () => {
                 <div onClick={() => {
                     goHome();
                 }}
-                    className={`cursor-pointer flex w-full justify-start ${isLogin ? 'w-full justify-center' : 'lg:w-10/12'} items-center`}>
+                    className={`cursor-pointer flex w-full justify-start ${isLogin ? 'w-full justify-center' : 'lg:w-3/5 lg:mr-20'} items-center`}>
                     <img src={imageCodeFilm} alt="CodeFilm" className="h-12 ml-4" />
                     <h1 className='text-white ml-5 text-xl' style={{ fontFamily: styles.fonts.primary }}>{labels.namePage}</h1>
                 </div>
@@ -40,6 +42,8 @@ export const NavTab = () => {
                                 <div className={`${isLogin ? 'animate-exitfromLeft' : 'animate-enterFromLeft'} lg:flex w-full justify-end lg:h-full items-center`}>
                                     <button className='text-white h-full w-full lg:w-auto pt-5 lg:pt-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => goHome()}> {labels.home}</button>
                                     <button className='text-white h-full w-full lg:w-auto py-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => goCategories()}> {labels.categories}</button>
+                                    <button className='text-white h-full w-full lg:w-auto  lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => goAllVideos()}> {labels.allVideos}</button>
+                                    <button className='text-white h-full w-full lg:w-auto py-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => goMyVideos()}> {labels.myVideos}</button>
                                     {isAutenticated &&
                                         <button className='text-white h-full w-full lg:w-auto pb-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() =>  goVideos()}> {labels.gestVideos}</button>
                                     }

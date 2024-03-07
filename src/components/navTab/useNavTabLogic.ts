@@ -46,6 +46,14 @@ export const useNavTabLogic = () => {
         navigate('/categories');
         setIsMenuOpen(false);
     }
+    const goMyVideos = () => {
+        navigate('/myVideos');
+        setIsMenuOpen(false);
+    }
+    const goAllVideos = () => {
+        navigate('/allVideos');
+        setIsMenuOpen(false);
+    }
     const openLogin = () => {
         navigate('/login'); setIsMenuOpen(false)
     }
@@ -95,6 +103,8 @@ export const useNavTabLogic = () => {
         isLogin,
         closeSesion,
         menuRef,
+        goAllVideos,
+        goMyVideos,
         goCategories,
         isMenuOpenAccount,
         isMenuOpen,
