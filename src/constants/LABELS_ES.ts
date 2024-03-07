@@ -24,7 +24,11 @@ export const LABELS_ES = {
     /* ------------------K------------- */
     /* ------------------L------------- */
     logIn: 'Iniciar Sesión',
+    languaje: 'Idioma',
+    languajeEsp: 'Español',
+    languajeEng: 'Ingles',
     logInCorrect: 'Inicio de sesión correcto',
+    logOut: 'Cerrar Sesión',
     /* ------------------M------------- */
     myAccount: 'Mi Cuenta',
     /* ------------------N------------- */
@@ -41,7 +45,6 @@ export const LABELS_ES = {
     /* ------------------R------------- */
     /* ------------------S------------- */
     singUpHere: 'Registrate Aquí',
-    singOut: 'Cerrar Sesión',
     settings: 'Configuraciones',
     miAccount: 'Mi Cuenta',
     /* ------------------T------------- */

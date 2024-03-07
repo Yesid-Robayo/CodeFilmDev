@@ -6,7 +6,7 @@ import { FirestoreMethods } from "../services/fireBaseMethods";
 import { useToast } from "../context/toastContext/toastContext";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { authReducer } from "../redux/authReducer";
+import { authReducer } from "../redux/reducers/authReducer";
 export const LoginComponent = ({ isSignUp }: { isSignUp: any }) => {
     const styles = useStyles();
     const labels = useLabels();
