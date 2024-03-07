@@ -1,7 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import { VideoDetails } from "../../utils/utilsDTOS";
 import { FirestoreMethods } from "../../services/fireBaseMethods";
-import { blobToBase64 } from "../../helpers/helpers";
 import { useNavigate } from "react-router-dom";
 import { storage } from "../../config/fireBaseConfig";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -11,7 +10,6 @@ import { useLabels, useLoadingContext, useStyles, useToast } from "../../hooks/c
 export const useAddVideoLogic = () => {
     const labels = useLabels();
     const styles = useStyles();
-    const navigate = useNavigate();
     const toast = useToast();
     const [errorMessage, setErrorMessage] = useState<string>('');
     const { startLoading, stopLoading } = useLoadingContext();

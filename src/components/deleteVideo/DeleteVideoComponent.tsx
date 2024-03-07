@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useDeleteVideoComponentLogic } from "./useDeleteVideoComponentLogic";
+import ConfirmationModal from '../../modals/ConfirmationModal';
 
 export const DeleteVideoComponent = () => {
-    const { labels, styles, userVideos, handleDeleteConfirm, handleDeleteCancel,handleDeleteConfirmation,showConfirmation} = useDeleteVideoComponentLogic();
-   
+    const { labels, styles, userVideos, handleDeleteConfirm, handleDeleteCancel, handleDeleteConfirmation, showConfirmation } = useDeleteVideoComponentLogic();
+
 
     return (
         <div className="w-1/2 at pb-10 h-full min-h-screen first-letter:pb-5 border-2 justify-center items-center rounded-3xl bg-white  ">
@@ -24,17 +25,15 @@ export const DeleteVideoComponent = () => {
                 })}
             </div>
 
-            {showConfirmation && (
-                <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50">
-                    <div className="bg-white -mt-36 p-10 rounded-3xl" style={{fontFamily:styles.fonts.text}}>
-                        <p>{labels.sureDeleteVideo}</p>
-                        <div className="flex justify-between mt-4">
-                            <button className="bg-red-500 text-white px-4 py-2 rounded-full mr-2" onClick={handleDeleteConfirm}>{labels.delete}</button>
-                            <button className="bg-gray-500 text-white px-4 py-2 rounded-full ml-2" onClick={handleDeleteCancel}>{labels.cancel}</button>
-                        </div>
-                    </div>
-                </div>
-            )}
+           
+                <ConfirmationModal
+                    showConfirmation={showConfirmation}
+                    labels={labels}
+                    handleDeleteConfirm={handleDeleteConfirm}
+                    handleDeleteCancel={handleDeleteCancel}
+                    styles={styles}
+                />
+          
         </div>
     )
 }

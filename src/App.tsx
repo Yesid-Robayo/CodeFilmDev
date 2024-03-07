@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
+import { HomePage } from './pages/homePage/HomePage';
 import { LoginPage } from './pages/loginPage/LoginPage';
 import { useSelector } from 'react-redux';
 import { NavTab } from './components/navTab/NavTab';

@@ -16,6 +16,7 @@ export const useDeleteVideoComponentLogic = () => {
 const toast = useToast();
     const handleDeleteConfirmation = (data: any) => {
         setShowConfirmation(true);
+        window.scrollTo(0, 0);
         setVideoToDelete(data);
     };
 
