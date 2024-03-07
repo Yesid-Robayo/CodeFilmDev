@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useLabels } from "../../hooks/useLanguage";
-import { useStyles } from "../../hooks/useStyles";
 import { FirestoreMethods } from "../../services/fireBaseMethods";
-import { useToast } from "../../context/toastContext/toastContext";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { authReducer } from "../../redux/reducers/authReducer";
+import { useLabels, useStyles, useToast } from "../../hooks/contextHooks";
 
 export const useLoginComponentLogic = () => {
     const styles = useStyles();

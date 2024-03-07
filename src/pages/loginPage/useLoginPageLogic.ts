@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useStyles } from "../../hooks/useStyles";
+import { useStyles } from "../../hooks/contextHooks";
 
 export const useLoginPageLogic = () => {
     const styles = useStyles();

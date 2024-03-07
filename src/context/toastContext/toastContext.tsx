@@ -1,5 +1,5 @@
 import  { createContext, useContext } from 'react';
-import { useStyles } from '../../hooks/useStyles';
+import { useStyles } from '../../hooks/contextHooks';
 
 type ShowToastFunction = (message: string) => void;
 
@@ -7,7 +7,6 @@ export const ToastContext = createContext<{ showToast: ShowToastFunction }>({
     showToast: () => {}
 });
 
-export const useToast = () => useContext(ToastContext);
 
 export const Toast = ({ message }: { message: string }) => {
     const styles = useStyles();

@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLabels } from "../../hooks/useLanguage";
-import { useStyles } from "../../hooks/useStyles";
 import { languageReducer } from "../../redux/reducers/utilsReducer";
 import { authReducer } from "../../redux/reducers/authReducer";
+import { useLabels, useStyles } from "../../hooks/contextHooks";
 
 export const useNavTabLogic = () => {
     const labels = useLabels();
@@ -28,6 +27,10 @@ export const useNavTabLogic = () => {
     const changeDrop = () => {
         setIsOpenDrop(!isOpenDrop)
     }
+    const goVideos = () => {
+        navigate('/videos');
+        setIsMenuOpen(false);
+    }
     const changeDropAndMenu = () => {
         setIsMenuOpen(!isMenuOpen); setIsOpenDrop(false)
     }
@@ -39,6 +42,10 @@ export const useNavTabLogic = () => {
         navigate('/home');
         setIsMenuOpen(false);
     };
+    const goCategories = () => {
+        navigate('/categories');
+        setIsMenuOpen(false);
+    }
     const openLogin = () => {
         navigate('/login'); setIsMenuOpen(false)
     }
@@ -80,7 +87,7 @@ export const useNavTabLogic = () => {
     return {
         labels,
         styles,
-        navigate,
+        goVideos,
         changeDrop,
         goHome,
         changeDropAndMenu,
@@ -88,6 +95,7 @@ export const useNavTabLogic = () => {
         isLogin,
         closeSesion,
         menuRef,
+        goCategories,
         isMenuOpenAccount,
         isMenuOpen,
         isMobile,

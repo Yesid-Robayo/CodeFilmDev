@@ -6,7 +6,6 @@ export const NavTab = () => {
     const {
         labels,
         styles,
-        navigate,
         isAutenticated,
         isLogin,
         isMobile,
@@ -16,11 +15,13 @@ export const NavTab = () => {
         changeLanguaje,
         isOpenDrop,
         changeDrop,
+        goCategories,
         goHome,
         changeOpenAccount,
         openLogin,
         closeSesion,
-        changeDropAndMenu
+        changeDropAndMenu,
+        goVideos
     } = useNavTabLogic();
     return (
         <div className={`sticky top-0 w-full z-50`} style={{ height: '4.5rem', backgroundColor: styles.colors['blue-500'] }}>
@@ -37,10 +38,10 @@ export const NavTab = () => {
                         {(isMenuOpen || !isMobile) &&
                             <div className='w-full lg:flex lg:h-full absolute left-0 lg:static items-center' style={{ backgroundColor: styles.colors['blue-500'], ...(isMobile ? { top: '4.5rem' } : {}) }}>
                                 <div className={`${isLogin ? 'animate-exitfromLeft' : 'animate-enterFromLeft'} lg:flex w-full justify-end lg:h-full items-center`}>
-                                    <button className='text-white h-full w-full lg:w-auto pt-5 lg:pt-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigate('/home')}> {labels.home}</button>
-                                    <button className='text-white h-full w-full lg:w-auto py-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigate('/categories')}> {labels.categories}</button>
+                                    <button className='text-white h-full w-full lg:w-auto pt-5 lg:pt-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => goHome()}> {labels.home}</button>
+                                    <button className='text-white h-full w-full lg:w-auto py-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => goCategories()}> {labels.categories}</button>
                                     {isAutenticated &&
-                                        <button className='text-white h-full w-full lg:w-auto pb-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => { }}> {labels.gestVideos}</button>
+                                        <button className='text-white h-full w-full lg:w-auto pb-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() =>  goVideos()}> {labels.gestVideos}</button>
                                     }
                                     <button
                                         onClick={() => changeDrop()}
@@ -85,7 +86,7 @@ export const NavTab = () => {
                             </button>
                             {isMenuOpenAccount && (
                                 <div className="absolute lg:right-16 right-28 mt-28 w-48 bg-white border-2 rounded-lg shadow-lg z-10">
-                                    <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left" onClick={() => navigate('/account')}>
+                                    <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left" onClick={() => goHome()}>
                                         {labels.miAccount}
                                     </button>
                                     <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left" onClick={() => { closeSesion() }}>
