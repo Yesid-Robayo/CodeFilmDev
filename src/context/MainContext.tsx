@@ -9,18 +9,18 @@ import { useSelector } from "react-redux";
 export const MainProvider = ({ children }: { children: React.ReactNode }) => {
   /* languageContext */
   const language = useSelector((state: any) => state.languaje.language);
-const [labels, setLabels] = useState(LABELS_ES);
-useEffect(() => {
+  const [labels, setLabels] = useState(LABELS_ES);
+  useEffect(() => {
     if (language === "es") {
       setLabels(LABELS_ES);
-    }else if (language === "en") {
+    } else if (language === "en") {
       setLabels(LABELS_ES);
-    }else{
+    } else {
       setLabels(LABELS_ES);
     }
-}, [language]);
- console.log(language);
-  
+  }, [language]);
+
+  /* toastContext */
   const [toast, setToast] = useState(null);
 
   const showToast = (message: any) => {

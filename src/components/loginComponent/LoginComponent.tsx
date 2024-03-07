@@ -1,51 +1,20 @@
-import React, { useState } from "react";
-import { useLabels } from "../hooks/useLanguage";
-import { useStyles } from "../hooks/useStyles";
+
 import IonIcon from "@reacticons/ionicons";
-import { FirestoreMethods } from "../services/fireBaseMethods";
-import { useToast } from "../context/toastContext/toastContext";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { authReducer } from "../redux/reducers/authReducer";
+import { useLoginComponentLogic } from "./useLoginComponentLogic";
 export const LoginComponent = ({ isSignUp }: { isSignUp: any }) => {
-    const styles = useStyles();
-    const labels = useLabels();
-    const [user, setUser] = useState("");
-    const [pass, setPass] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
-    const toast = useToast();
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const handleLogin = async () => {
-        setErrorMessage("");
-        if (user === "" || pass === "") {
-            setErrorMessage("Por favor ingresa usuario y contraseña.");
-            return;
-        }
-        try {
-            const searchResult = await FirestoreMethods.searchStorageFile("users", "username", user);
 
-            if (searchResult.success && searchResult.data.length > 0) {
-
-                const userData = searchResult.data[0].data;
-
-                if (userData.password === pass) {
-                    dispatch(authReducer.actions.login(userData));
-                    navigate("/home")
-                    toast.showToast(labels.logInCorrect);
-                } else {
-                    setErrorMessage(labels.passIsError)
-                }
-            } else {
-                setErrorMessage(labels.userNotEncounter)
-            }
-        } catch (error) {
-            console.log(error);
-            setErrorMessage(labels.errorTryAgain);
-        }
-    };
-
+    const {
+        styles,
+        labels,
+        user,
+        pass,
+        showPassword,
+        errorMessage,
+        changeShowPassword,
+        updateUser,
+        updatePass,
+        handleLogin,
+     } = useLoginComponentLogic();
     return (
         <div className="w-1/2 h-1/2  animate-enterFromLeft my-24  pb-5 border-2 justify-center items-center  rounded-3xl bg-white"  >
             <h3 className=" text-xl font-semibold border-b-2 pb-3 text-center mt-5" style={{ fontFamily: styles.fonts.primary, color: styles.colors["blue-500"] }}>{labels.logIn}</h3>
@@ -56,7 +25,7 @@ export const LoginComponent = ({ isSignUp }: { isSignUp: any }) => {
                     placeholder={labels.user}
                     className="border-2 w-48 rounded-lg p-2 "
                     value={user}
-                    onChange={(e) => setUser(e.target.value)}
+                    onChange={(e) => updateUser(e.target.value)}
                 />
             </div>
             <div className="flex-row text-center justify-center items-center  w-full mt-3" style={{ fontFamily: styles.fonts.text }}>
@@ -66,13 +35,13 @@ export const LoginComponent = ({ isSignUp }: { isSignUp: any }) => {
                         type={showPassword ? "text" : "password"}
                         placeholder={labels.pass}
                         value={pass}
-                        onChange={(e) => setPass(e.target.value)}
+                        onChange={(e) => updatePass(e.target.value)}
                         className="border-2 w-48 rounded-lg p-2 pr-10"
                     />
                     <button
                         type="button"
                         className="absolute inset-y-0 right-1 flex items-center px-3 bg-transparent"
-                        onClick={() => setShowPassword(!showPassword)}
+                        onClick={() => changeShowPassword()}
                     >
                         <IonIcon name={showPassword ? 'eye-outline' : 'eye-off-outline'} />
                     </button>

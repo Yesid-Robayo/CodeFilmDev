@@ -1,58 +1,29 @@
-import  { useState } from "react";
-import { useLabels } from "../hooks/useLanguage";
-import { useStyles } from "../hooks/useStyles";
 import IonIcon from "@reacticons/ionicons";
-import { FirestoreMethods } from "../services/fireBaseMethods";
-import { useToast } from "../context/toastContext/toastContext";
+import { useSignUpComponentLogic } from "./useSignUpComponentLogic";
+
 export const SignUpComponent = ({ isSignIn }: { isSignIn: any }) => {
-
-    const styles = useStyles();
-    const labels = useLabels();
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
-    const [dateOfBirth, setDateOfBirth] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
-    const toast = useToast();
-    const isEmailValid = (email: string) => {
-        return /\S+@\S+\.\S+/.test(email);
-    };
-
-    const handleSignUp = async () => {
-        setErrorMessage("");
-        if (username === "" || email === "" || name === "" || dateOfBirth === "" || password === "" || confirmPassword === "") {
-            setErrorMessage(labels.completeAllFields);
-            return;
-        }
-        if (password !== confirmPassword) {
-            setErrorMessage(labels.notMatchpass);
-            return;
-        }
-        if (!isEmailValid(email)) {
-            setErrorMessage(labels.invalidEmail);
-            return;
-        }
-
-        await FirestoreMethods.addStorageFile("users", {
-            username,
-            email,
-            name,
-            dateOfBirth,
-            password,
-        }).then((response: any) => {
-            if (response.success) {
-                isSignIn();
-                toast.showToast(labels.creationUserCorrect);
-            } else {
-                console.log(response.error);
-                toast.showToast(labels.errorCreationUser);
-            }
-        }).catch((error) => { });
-    };
+    const {
+        styles,
+        labels,
+        username,
+        updateUser,
+        email,
+        updateEmail,
+        name,
+        updateName,
+        dateOfBirth,
+        updateDateOfBirth,
+        password,
+        updatePassword,
+        confirmPassword,
+        updateConfirmPassword,
+        showPassword,
+        changeShowPassword,
+        showConfirmPassword,
+        changeShowConfirmPassword,
+        errorMessage,
+        handleSignUp,
+    } = useSignUpComponentLogic({ isSignIn });
 
 
     return (
@@ -67,7 +38,7 @@ export const SignUpComponent = ({ isSignIn }: { isSignIn: any }) => {
                     placeholder={labels.user}
                     className="border-2 w-48 rounded-lg p-2"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChange={(e) => updateUser(e.target.value)}
                 />
             </div>
             <div className="flex-row text-center justify-center items-center w-full mt-2 sm:mt-4" style={{ fontFamily: styles.fonts.text }}>
@@ -77,7 +48,7 @@ export const SignUpComponent = ({ isSignIn }: { isSignIn: any }) => {
                     placeholder={labels.email}
                     className="border-2 w-48 rounded-lg p-2"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => updateEmail(e.target.value)}
                 />
             </div>
             <div className="flex-row text-center justify-center items-center w-full mt-3" style={{ fontFamily: styles.fonts.text }}>
@@ -87,7 +58,7 @@ export const SignUpComponent = ({ isSignIn }: { isSignIn: any }) => {
                     placeholder={labels.name}
                     className="border-2 w-48 rounded-lg p-2"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => updateName(e.target.value)}
                 />
             </div>
             <div className="flex-row text-center justify-center items-center w-full mt-3" style={{ fontFamily: styles.fonts.text }}>
@@ -96,7 +67,7 @@ export const SignUpComponent = ({ isSignIn }: { isSignIn: any }) => {
                     type="date"
                     className="border-2 w-48 rounded-lg p-2"
                     value={dateOfBirth}
-                    onChange={(e) => setDateOfBirth(e.target.value)}
+                    onChange={(e) => updateDateOfBirth(e.target.value)}
                 />
             </div>
             <div className="flex-row text-center justify-center items-center w-full mt-3" style={{ fontFamily: styles.fonts.text }}>
@@ -106,13 +77,13 @@ export const SignUpComponent = ({ isSignIn }: { isSignIn: any }) => {
                         type={showPassword ? "text" : "password"}
                         placeholder={labels.pass}
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={(e) => updatePassword(e.target.value)}
                         className="border-2 w-48 rounded-lg p-2 pr-10"
                     />
                     <button
                         type="button"
                         className="absolute inset-y-0 right-1 flex items-center px-3 bg-transparent"
-                        onClick={() => setShowPassword(!showPassword)}
+                        onClick={() => changeShowPassword()}
                     >
                         <IonIcon name={showPassword ? 'eye-outline' : 'eye-off-outline'} />
                     </button>
@@ -125,13 +96,13 @@ export const SignUpComponent = ({ isSignIn }: { isSignIn: any }) => {
                         type={showConfirmPassword ? "text" : "password"}
                         placeholder={labels.pass}
                         value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        onChange={(e) => updateConfirmPassword(e.target.value)}
                         className="border-2 w-48 rounded-lg p-2 pr-10"
                     />
                     <button
                         type="button"
                         className="absolute inset-y-0 right-1 flex items-center px-3 bg-transparent"
-                        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                        onClick={() => changeShowConfirmPassword()}
                     >
                         <IonIcon name={showConfirmPassword ? 'eye-outline' : 'eye-off-outline'} />
                     </button>

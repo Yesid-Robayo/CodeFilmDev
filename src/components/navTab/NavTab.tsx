@@ -1,68 +1,32 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useLabels } from "../hooks/useLanguage";
-import imageCodeFilm from "../assets/images/CodeFilmDev.png";
-import { useStyles } from "../hooks/useStyles";
+import imageCodeFilm from "../../assets/images/CodeFilmDev.png";
 import IonIcon from '@reacticons/ionicons';
-import { useDispatch, useSelector } from 'react-redux';
-import { authReducer } from '../redux/reducers/authReducer';
-import { languageReducer } from "../redux/reducers/utilsReducer";
+import { useNavTabLogic } from "./useNavTabLogic";
 
 export const NavTab = () => {
-    const labels = useLabels();
-    const styles = useStyles();
-    const navigate = useNavigate();
-    const location = useLocation();
-    const isAutenticated = useSelector((state: any) => state.auth.isAuthenticated);
-    const [isLogin, setIsLogin] = useState(false);
-    const [isMenuOpenAccount, setIsMenuOpenAccount] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
-    const [isOpenDrop, setIsOpenDrop] = useState(false);
-
-    const dispatch = useDispatch();
-    const menuRef: any = useRef(null);
-    const changeLanguaje = (languaje: string) => {
-        dispatch(languageReducer.actions.setLanguaje(languaje))
-    };
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 1024);
-        };
-
-        handleResize();
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
-    useEffect(() => {
-        setIsLogin(location.pathname === '/login');
-    }, [location.pathname]);
-
-    useEffect(() => {
-        const handleClickOutside = (event: any) => {
-            if (menuRef.current && !menuRef.current.contains(event.target)) {
-                setIsMenuOpenAccount(false);
-            }
-        };
-
-        document.addEventListener('click', handleClickOutside);
-
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-        };
-    }, []);
-
+    const {
+        labels,
+        styles,
+        navigate,
+        isAutenticated,
+        isLogin,
+        isMobile,
+        isMenuOpen,
+        menuRef,
+        isMenuOpenAccount,
+        changeLanguaje,
+        isOpenDrop,
+        changeDrop,
+        goHome,
+        changeOpenAccount,
+        openLogin,
+        closeSesion,
+        changeDropAndMenu
+    } = useNavTabLogic();
     return (
         <div className={`sticky top-0 w-full z-50`} style={{ height: '4.5rem', backgroundColor: styles.colors['blue-500'] }}>
             <div className={`${isLogin ? '' : 'animate-enterFromLeft'} justify-center lg:justify-start flex items-center w-full h-full`}>
                 <div onClick={() => {
-                    navigate('/home');
-                    setIsMenuOpen(false);
+                    goHome();
                 }}
                     className={`cursor-pointer flex w-full justify-start ${isLogin ? 'w-full justify-center' : 'lg:w-10/12'} items-center`}>
                     <img src={imageCodeFilm} alt="CodeFilm" className="h-12 ml-4" />
@@ -79,7 +43,7 @@ export const NavTab = () => {
                                         <button className='text-white h-full w-full lg:w-auto pb-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => { }}> {labels.gestVideos}</button>
                                     }
                                     <button
-                                        onClick={() => setIsOpenDrop(!isOpenDrop)}
+                                        onClick={() => changeDrop()}
                                         className='text-white h-full w-full lg:w-auto items-center justify-center text-center pb-5 lg:py-0 lg:px-5 flex' style={{ fontFamily: styles.fonts.text }}>
                                         {labels.languaje}
                                         <IonIcon name={'chevron-down'} className={`text-xl text-center text-white ml-2 self-center`} />
@@ -93,10 +57,10 @@ export const NavTab = () => {
                                                     <button className="block w-full px-4 py-2 text-sm 
                                                     text-center text-gray-700 hover:bg-gray-100 
                                                     hover:text-gray-900"style={{ fontFamily: styles.fonts.text }}
-                                                    onClick={() => {setIsOpenDrop(false);changeLanguaje('es')}}                                                >{labels.languajeEsp}</button>
+                                                        onClick={() =>  changeLanguaje('es') }                                                >{labels.languajeEsp}</button>
                                                     <button className="block w-full  px-4 py-2 text-sm   text-center text-gray-700 hover:bg-gray-100 
                                                     hover:text-gray-900" style={{ fontFamily: styles.fonts.text }}
-                                                    onClick={() => {setIsOpenDrop(false);changeLanguaje('en')}}  >{labels.languajeEng}</button>
+                                                        onClick={() =>  changeLanguaje('en')}  >{labels.languajeEng}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,11 +75,10 @@ export const NavTab = () => {
                             <button className={`text-center flex items-center justify-center w-32`} >
                                 {isAutenticated ?
                                     <IonIcon name={'person'} onClick={() => {
-                                        setIsMenuOpenAccount(!isMenuOpenAccount);
-                                        setIsOpenDrop(false)
+                                        changeOpenAccount()
                                     }} className={`text-3xl text-white`} />
                                     :
-                                    <div className='text-white flex w-full rounded-full cursor-pointer mr-5 border text-center text-sm border-white' style={{ padding: '.4rem', paddingLeft: '.6rem', fontFamily: styles.fonts.text }} onClick={() => { navigate('/login'); setIsMenuOpen(false) }}>
+                                    <div className='text-white flex w-full rounded-full cursor-pointer mr-5 border text-center text-sm border-white' style={{ padding: '.4rem', paddingLeft: '.6rem', fontFamily: styles.fonts.text }} onClick={() => { openLogin() }}>
                                         <h4 className='text-center'>{labels.logIn}</h4>
                                     </div>
                                 }
@@ -125,12 +88,12 @@ export const NavTab = () => {
                                     <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left" onClick={() => navigate('/account')}>
                                         {labels.miAccount}
                                     </button>
-                                    <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left" onClick={() => { dispatch(authReducer.actions.logOut()); setIsMenuOpenAccount(false); }}>
+                                    <button className="block px-4 py-2 text-gray-800 hover:bg-gray-200 w-full text-left" onClick={() => { closeSesion() }}>
                                         {labels.logOut}
                                     </button>
                                 </div>
                             )}
-                            <button onClick={() => { setIsMenuOpen(!isMenuOpen); setIsOpenDrop(false) }} className={`${isLogin ? 'hidden' : 'flex'} ${isMobile ? 'flex' : 'hidden'}`}>
+                            <button onClick={() => { changeDropAndMenu() }} className={`${isLogin ? 'hidden' : 'flex'} ${isMobile ? 'flex' : 'hidden'}`}>
                                 <IonIcon name={isMenuOpen ? 'close' : 'menu'} className={`text-4xl text-white mr-4`} />
                             </button>
                         </div>
