@@ -3,7 +3,7 @@ import {addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, updateDoc, w
 import { db } from "../config/fireBaseConfig";
 import { coleccion } from "../utils/utilsTypes";
 
-const FirestoreMethods = {
+export const FirestoreMethods = {
   // Agregar un documento a una colección
   addStorageFile: async (coleccion: coleccion, datos: any) => {
     try {
@@ -90,7 +90,8 @@ const FirestoreMethods = {
     } catch (error) {
       return { success: false, error: error };
     }
-  }
+  },
+  
+  
 }
 
-export default FirestoreMethods;

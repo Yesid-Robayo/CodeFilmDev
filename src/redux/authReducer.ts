@@ -1,25 +1,26 @@
-const initialState = {
-    isAuthenticated: false,
-    user: null,
-  };
-  // autenticacion de usuario
-  const authReducer = (state = initialState, action: any) => {
-    switch (action.type) {
-      case 'LOGIN':
-        return {
-          ...state,
-          isAuthenticated: true,
-          user: action.payload,
-        };
-      case 'LOGOUT':
-        return {
-          ...state,
-          isAuthenticated: false,
-          user: null,
-        };
-      default:
-        return state;
+import { createSlice } from "@reduxjs/toolkit";
+
+type AuthState = {
+  isAuthenticated: boolean;
+  user: string | null;
+};
+
+const initialState: AuthState = {
+  isAuthenticated: false,
+  user: null,
+};
+
+export const authReducer = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    login: (state, action) => {
+      state.isAuthenticated = true;
+      state.user = action.payload;
+    },
+    logOut: (state) => {
+      state.isAuthenticated = false;
+      state.user = null;
     }
-  };
-  
-  export default authReducer;
+  },
+});

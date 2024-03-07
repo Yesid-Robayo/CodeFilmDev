@@ -28,9 +28,20 @@ module.exports = {
             
           },
         },
+        enterFromBack: {
+          from: {
+            transform: 'translateY(100%) scale(0)',
+            opacity: '0',
+          },
+          to: {
+            transform: 'translateY(0) scale(1)',
+            opacity: '1',
+          },
+        }
         
       },
       animation: {
+        enterFromBack: 'enterFromBack 1s ease-out forwards',
          enterFromLeft: 'enterFromLeft 1s ease-out forwards',
         exitfromLeft: 'exitfromLeft 1s ease-out forwards',
       },
