@@ -6,9 +6,9 @@ CodeFilmDev es una innovadora plataforma de interacción social para aficionados
 
 ## Tecnologías Utilizadas
 
-Este proyecto aprovecha el poder de las tecnologías de vanguardia en el desarrollo de aplicaciones web, utilizando:
+Este proyecto aprovecha el poder de las tecnologías de vanguardia en el desarrollo de aplicaciones web, utilizando :
 
-- **ReactJS (última versión):** Brindando una base sólida para construir una interfaz de usuario reactiva y eficiente.
+- **ReactJS (18.2.0v):** Brindando una base sólida para construir una interfaz de usuario reactiva y eficiente.
 - **Redux Toolkit y Context API:** Para una gestión de estado sofisticada y eficiente a lo largo de la aplicación.
 - **Hooks:** Utilizados para encapsular la lógica de los componentes y reutilizar el estado y la lógica de manera efectiva.
 - **Firestore y Firebase:** Ofrecen un almacenamiento robusto y escalabilidad, además de una base de datos en tiempo real para una sincronización de datos sin esfuerzo.
@@ -27,22 +27,32 @@ Los usuarios pueden interactuar libremente con el contenido, aprovechando un sis
 
 Diseñado para una audiencia global, CodeFilmDev incluye funcionalidades de cambio de idioma, permitiendo a los usuarios seleccionar su preferencia lingüística y disfrutar de una experiencia personalizada.
 
+![Lang_en](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/3c82dc1a-fbd2-4714-acb1-25e1b32b7825)
+![Lang_es](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/f2c5759b-9c31-4074-8d9c-7973a4e7bf49)
+
 ### Estructura de Carpetas Organizada
 
 Una estructura de proyecto meticulosamente organizada distingue claramente entre la lógica de aplicación (*.ts) y la interfaz de usuario (*.tsx), mejorando así la legibilidad del código y facilitando la colaboración y el mantenimiento del proyecto.
+
+![Carpetas ReactJS](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/07b68824-2177-4997-8d01-15f3163aee87)
 
 ### Barra de Búsqueda
 
 Incorpora una barra de búsqueda intuitiva, permitiendo a los usuarios encontrar rápidamente películas y reseñas específicas. Esta herramienta mejora significativamente la navegabilidad y la usabilidad del sitio, haciendo que la experiencia del usuario sea fluida y directa.
 
+![Barra busqueda](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/a4184d48-ddd7-4671-a1e8-133da69d50e2)
+
 ### Interfaz Amigable
 
 La interfaz de usuario ha sido diseñada pensando en la facilidad de uso, ofreciendo una experiencia agradable y accesible. La navegación intuitiva, acompañada de un diseño atractivo, asegura que los usuarios de todos los niveles técnicos puedan disfrutar plenamente de las funcionalidades del sitio.
+
+![Interfaz Amigable](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/7944ff93-6a22-494a-b564-8cb6211c7411)
 
 ### Diseño Responsivo
 
 CodeFilmDev está diseñado para ser totalmente responsivo, asegurando una experiencia de usuario óptima en todos los dispositivos, desde ordenadores de escritorio hasta tablets y smartphones. Gracias a la utilización de técnicas modernas de diseño web, la interfaz se adapta fluidamente a diferentes tamaños de pantalla, proporcionando una navegabilidad y accesibilidad sin compromisos. Esto permite a los usuarios disfrutar de nuestra plataforma y explorar el contenido cinematográfico en cualquier momento y lugar, con la misma facilidad y comodidad.
 
+![Responsive](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/98b162f2-477d-4115-a01e-2b6c195004e9)
 
 ## Instalación
 
