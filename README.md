@@ -1,7 +1,6 @@
+## CodeFilmDev
 
-# CodeFilmDev
-
-![Logo](src/assets/images/CodeFilmDev.png)
+![logo](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/4d537c0d-94c0-4f43-9165-08c2052cce9d)
 
 CodeFilmDev es una innovadora plataforma de interacción social para aficionados al cine, donde los usuarios pueden subir videos, dejar reseñas y explorar una amplia gama de categorías de películas. Desarrollado con el usuario final en mente, este proyecto está diseñado para ofrecer una experiencia dinámica y atractiva, permitiendo una gestión de contenido eficiente y participativa relacionada con el cine.
 
@@ -21,6 +20,9 @@ Este proyecto aprovecha el poder de las tecnologías de vanguardia en el desarro
 
 Los usuarios pueden interactuar libremente con el contenido, aprovechando un sistema completo de CRUD (Crear, Leer, Actualizar, Eliminar) para administrar películas y perfiles de usuario. Esto facilita la gestión de contenido y fomenta una comunidad activa y participativa.
 
+![crud videos](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/d3f9009d-48ab-42c4-ad33-0acda71538aa)
+
+
 ### Cambio de Idioma
 
 Diseñado para una audiencia global, CodeFilmDev incluye funcionalidades de cambio de idioma, permitiendo a los usuarios seleccionar su preferencia lingüística y disfrutar de una experiencia personalizada.
@@ -36,6 +38,11 @@ Incorpora una barra de búsqueda intuitiva, permitiendo a los usuarios encontrar
 ### Interfaz Amigable
 
 La interfaz de usuario ha sido diseñada pensando en la facilidad de uso, ofreciendo una experiencia agradable y accesible. La navegación intuitiva, acompañada de un diseño atractivo, asegura que los usuarios de todos los niveles técnicos puedan disfrutar plenamente de las funcionalidades del sitio.
+
+### Diseño Responsivo
+
+CodeFilmDev está diseñado para ser totalmente responsivo, asegurando una experiencia de usuario óptima en todos los dispositivos, desde ordenadores de escritorio hasta tablets y smartphones. Gracias a la utilización de técnicas modernas de diseño web, la interfaz se adapta fluidamente a diferentes tamaños de pantalla, proporcionando una navegabilidad y accesibilidad sin compromisos. Esto permite a los usuarios disfrutar de nuestra plataforma y explorar el contenido cinematográfico en cualquier momento y lugar, con la misma facilidad y comodidad.
+
 
 ## Instalación
 
