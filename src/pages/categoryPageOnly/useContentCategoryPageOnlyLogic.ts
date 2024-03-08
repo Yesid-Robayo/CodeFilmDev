@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { useLabels, useLoadingContext, useStyles } from "../../hooks/contextHooks";
+import { useLabels, useStyles } from "../../hooks/contextHooks";
 import { useEffect, useState } from "react";
 import { FirestoreMethods } from "../../services/fireBaseMethods";
 
-export const useCategoriesPageOnlyLogic = (categoryKey: any) => {
+export const useContentCategoryPageOnlyLogic = (categoryKey: any) => {
     const styles = useStyles();
     const navigate = useNavigate();
     const labels = useLabels();

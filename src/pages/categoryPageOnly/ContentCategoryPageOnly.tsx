@@ -1,9 +1,9 @@
 import {  useParams } from 'react-router-dom';
-import { useCategoriesPageOnlyLogic } from './useCategoriesPageOnlyLogic';
+import { useContentCategoryPageOnlyLogic } from './useContentCategoryPageOnlyLogic';
 
-export function CategoriesPageOnly() {
+export function ContentCategoryPageOnly() {
     const { categoryKey }: any = useParams();
-    const { styles, labels, filterVideosByCategory, navigateToVideo,selectedCategoryLabel } = useCategoriesPageOnlyLogic(categoryKey);
+    const { styles, labels, filterVideosByCategory, navigateToVideo,selectedCategoryLabel } = useContentCategoryPageOnlyLogic(categoryKey);
 
     return (
         <div className="w-full min-h-screen p-10 flex flex-col items-center justify-center" style={{ backgroundColor: styles.colors['blue-100'] }}>

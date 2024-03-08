@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { useVideoPageLogic } from './useVideoPageLogic';
 import ReactPlayer from 'react-player';
+import { useContentDetailsPageLogic } from './useContentDetailsPageLogic';
 
-export function VideoPage() {
+export function ContentDetailsPage() {
     const { videoId }: any = useParams();
-    const { videoDetails, relatedVideos, navigateToVideo, styles, labels } = useVideoPageLogic(videoId);
+    const { videoDetails, relatedVideos, navigateToVideo, styles, labels } = useContentDetailsPageLogic(videoId);
     return (
         <div className="w-full min-h-screen p-10 flex flex-col items-center justify-center" style={{ backgroundColor: styles.colors['blue-100'] }}>
             <div className={`bg-white min-h-96 animate-enterFromLeft  pb-2 rounded-3xl w-full `}>
@@ -14,7 +14,7 @@ export function VideoPage() {
 
                             <div className='w-full justify-center items-center flex'>
 
-                            <ReactPlayer
+                                <ReactPlayer
                                     url={videoDetails.videoURL}
                                     controls
                                     className="react-player rounded-lg"

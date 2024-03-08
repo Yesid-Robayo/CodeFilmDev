@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLabels, useLoadingContext, useStyles } from "../../hooks/contextHooks";
-import { useSelector } from "react-redux";
+import { useLabels, useStyles } from "../../hooks/contextHooks";
 import { FirestoreMethods } from "../../services/fireBaseMethods";
 import { useNavigate } from "react-router-dom";
 
-export const useCategoriesPageLogic = () => {
+export const useContentCategoryPageLogic = () => {
     const styles = useStyles();
     const labels = useLabels();
     const [userVideos, setUserVideos] = useState<any[]>([]);

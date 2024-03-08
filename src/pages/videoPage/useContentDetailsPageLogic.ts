@@ -4,7 +4,7 @@ import { FirestoreMethods } from "../../services/fireBaseMethods";
 import { shuffleArray } from "../../helpers/helpers";
 import { useNavigate } from "react-router-dom";
 
-export const useVideoPageLogic = (videoID: string) => {
+export const useContentDetailsPageLogic = (videoID: string) => {
     const labels = useLabels();
     const styles = useStyles();
     const [videoDetails, setVideoDetails] = useState<any>(null);

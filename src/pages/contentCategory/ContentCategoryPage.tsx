@@ -1,9 +1,7 @@
-import { useState } from 'react';
-import { useCategoriesPageLogic } from './useCategoriesPageLogic';
-import { useNavigate } from 'react-router-dom';
+import { useContentCategoryPageLogic } from "./useContentCategoryPageLogic";
 
-export function CategoriesPage() {
-    const { styles, labels, filterVideosByCategory,categoriesWithoutVideos,categoriesWithVideos,categoriesLabels,navigateToVideo,navigateToCategory } = useCategoriesPageLogic();
+export function ContentCategoryPage() {
+    const { styles, labels, filterVideosByCategory,categoriesWithoutVideos,categoriesWithVideos,categoriesLabels,navigateToVideo,navigateToCategory } = useContentCategoryPageLogic();
 
  
     return (
