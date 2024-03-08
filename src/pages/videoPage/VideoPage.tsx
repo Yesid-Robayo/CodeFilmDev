@@ -13,7 +13,7 @@ export function VideoPage() {
                         <div className="lg:col-span-2 lg:mr-5">
 
                             <div className='w-full justify-center items-center flex'>
-                                <video controls className="rounded-lg" style={{ maxWidth: '100%' }}>
+                            <video controls className="rounded-lg " style={{  maxWidth: '100%' ,height:'100%'}}>
                                     <source src={videoDetails.videoURL} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>

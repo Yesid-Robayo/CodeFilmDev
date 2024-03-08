@@ -29,6 +29,7 @@ export const useVideoPageLogic = (videoID: string) => {
         navigate(`/video/${videoID}`);
     }
     const getVideoDetails = async () => {
+        setVideoDetails(null);
         await FirestoreMethods.getStorageFile("videos", videoID).then((response) => {
 
             if (response.data) {
