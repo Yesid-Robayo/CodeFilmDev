@@ -1,7 +1,7 @@
 
-# CodeFilmDev
+                                                                     # CodeFilmDev
+![logo](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/4d537c0d-94c0-4f43-9165-08c2052cce9d)
 
-![logo](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/3a58a896-a59b-478f-a489-41f64c6cbbe6)
 
 CodeFilmDev es una innovadora plataforma de interacción social para aficionados al cine, donde los usuarios pueden subir videos, dejar reseñas y explorar una amplia gama de categorías de películas. Desarrollado con el usuario final en mente, este proyecto está diseñado para ofrecer una experiencia dinámica y atractiva, permitiendo una gestión de contenido eficiente y participativa relacionada con el cine.
 
