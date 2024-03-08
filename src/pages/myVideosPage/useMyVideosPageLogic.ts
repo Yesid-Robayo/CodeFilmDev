@@ -9,7 +9,6 @@ export const useMyVideosPageLogic = () => {
     const labels = useLabels();
 
     const [userVideos, setUserVideos] = useState<any[]>([]);
-    const { startLoading, stopLoading } = useLoadingContext();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const userData = useSelector((state: any) => state.auth.user);
@@ -21,7 +20,6 @@ export const useMyVideosPageLogic = () => {
     });
 
     const getVideos = async () => {
-        startLoading();
         await FirestoreMethods.searchStorageFile("videos", "autor", userData.username).then((response) => {
             if (response.success) {
                 setUserVideos(response.data);
@@ -30,7 +28,6 @@ export const useMyVideosPageLogic = () => {
 
             }
         });
-        stopLoading();
     };
 
     useEffect(() => {

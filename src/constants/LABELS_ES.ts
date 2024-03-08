@@ -12,8 +12,10 @@ export const LABELS_ES = {
     /* ------------------B------------- */
     /* ------------------C------------- */
     categories: 'Categorias',
+    category: 'Categoria:',
     correctDeleteAccount: 'Eliminar Cuenta Correcto',
     cancel: 'Cancelar',
+    clear: 'Limpiar',
     changeCorrect: 'Cambio de contraseña correcto',
     creationVideoCorrect: 'Video creado exitosamente',
     completeAllFields: 'Complete todos los campos',
@@ -100,6 +102,7 @@ export const LABELS_ES = {
     user: 'Usuario',
     /* ------------------V------------- */
     videos: 'Videos',
+    videoRelated: 'Videos Relacionados',
     videoCategories: 'Categorias de Videos',
     videoPreview: 'Vista Previa del Video',
     videoName: 'Nombre del Video',

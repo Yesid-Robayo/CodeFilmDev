@@ -38,9 +38,9 @@ export const NavTab = () => {
                                     <button className='text-white h-full w-full lg:w-auto pt-5 lg:pt-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigateAll('/home')}> {labels.home}</button>
                                     <button className='text-white h-full w-full lg:w-auto py-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigateAll('/categories')}> {labels.categories}</button>
                                     <button className='text-white h-full w-full lg:w-auto  lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigateAll('/allVideos')}> {labels.allVideos}</button>
-                                    <button className='text-white h-full w-full lg:w-auto py-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigateAll('/myVideos')}> {labels.myVideos}</button>
+                                    {isAutenticated && <button className='text-white h-full w-full lg:w-auto py-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigateAll('/myVideos')}> {labels.myVideos}</button>}
                                     {isAutenticated &&
-                                        <button className='text-white h-full w-full lg:w-auto pb-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() =>  navigateAll('/manageVideos')}> {labels.gestVideos}</button>
+                                        <button className='text-white h-full w-full lg:w-auto pb-5 lg:py-0 lg:px-5' style={{ fontFamily: styles.fonts.text }} onClick={() => navigateAll('/manageVideos')}> {labels.gestVideos}</button>
                                     }
                                     <button
                                         onClick={() => changeDrop()}
@@ -57,10 +57,10 @@ export const NavTab = () => {
                                                     <button className="block w-full px-4 py-2 text-sm 
                                                     text-center text-gray-700 hover:bg-gray-100 
                                                     hover:text-gray-900"style={{ fontFamily: styles.fonts.text }}
-                                                        onClick={() =>  changeLanguaje('es') }                                                >{labels.languajeEsp}</button>
+                                                        onClick={() => changeLanguaje('es')}                                                >{labels.languajeEsp}</button>
                                                     <button className="block w-full  px-4 py-2 text-sm   text-center text-gray-700 hover:bg-gray-100 
                                                     hover:text-gray-900" style={{ fontFamily: styles.fonts.text }}
-                                                        onClick={() =>  changeLanguaje('en')}  >{labels.languajeEng}</button>
+                                                        onClick={() => changeLanguaje('en')}  >{labels.languajeEng}</button>
                                                 </div>
                                             </div>
                                         </div>

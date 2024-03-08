@@ -1,7 +1,7 @@
 const ConfirmationModal = ({ message, showConfirmation, labels, handleDeleteConfirm, handleDeleteCancel, styles }: { message: any, showConfirmation: any, labels: any, handleDeleteConfirm: () => void, handleDeleteCancel: () => void, styles: any }) => {
   return (
     showConfirmation && (
-      <div className="fixed top-0 left-0 w-full h-full flex justify-center items-start pt-28 bg-gray-800 bg-opacity-50">
+      <div className="fixed -top-10 left-0 w-full  flex justify-center items-start pt-28 bg-gray-800 bg-opacity-50" style={{height:'200vh'}}>
         <div className="bg-white  p-10 rounded-3xl" style={{ fontFamily: styles.fonts.text }}>
           <p>{message}</p>
           <div className="flex justify-between mt-4">

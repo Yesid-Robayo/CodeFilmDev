@@ -23,9 +23,10 @@ export const DeleteVideoComponent = () => {
                         </div>
                     )
                 })}
+              
             </div>
 
-           
+            {userVideos.length === 0 && <h2 className="text-xl text-center mt-10 w-full" style={{ fontFamily: styles.fonts.text }}>{labels.noVideosFound}</h2>}
                 <ConfirmationModal
                     message={labels.sureDeleteVideo}
                     showConfirmation={showConfirmation}

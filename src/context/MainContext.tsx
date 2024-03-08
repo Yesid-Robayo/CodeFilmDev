@@ -6,6 +6,7 @@ import { Toast, ToastContext } from "./toastContext/toastContext";
 import { useSelector } from "react-redux";
 import { Loading, LoadingContext } from "./toastContext/LoadingContext";
 import { StylesContext } from "./stylesContext/StylesContext ";
+import { LABELS_EN } from "../constants/LABELS_EN";
 
 export const MainProvider = ({ children }: { children: React.ReactNode }) => {
   /* languageContext */
@@ -15,7 +16,7 @@ export const MainProvider = ({ children }: { children: React.ReactNode }) => {
     if (language === "es") {
       setLabels(LABELS_ES);
     } else if (language === "en") {
-      setLabels(LABELS_ES);
+      setLabels(LABELS_EN);
     } else {
       setLabels(LABELS_ES);
     }

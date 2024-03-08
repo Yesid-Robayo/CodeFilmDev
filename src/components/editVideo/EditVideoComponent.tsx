@@ -1,7 +1,7 @@
 import { useEditVideoComponentLogic } from "./useEditVideoComponentLogic";
 
 export const EditVideoComponent = () => {
-    const { labels, userVideos, styles, changeSetVideoReview, changeVideoReview, selectedVideo, selectVideo,videoReview } = useEditVideoComponentLogic();
+    const { labels, userVideos, styles, changeSetVideoReview, changeVideoReview, selectedVideo, selectVideo, videoReview } = useEditVideoComponentLogic();
     return (
         <div className="w-1/2 at pb-10 h-full min-h-screen first-letter:pb-5 border-2 justify-center items-center rounded-3xl bg-white  ">
             <div className="flex w-full justify-center">
@@ -17,6 +17,7 @@ export const EditVideoComponent = () => {
                         </div>
                     )
                 })}
+
             </div> : <div className="flex-row justify-center items-center h-full">
 
                 <div className="flex-row text-center justify-center items-center w-full mt-2 sm:mt-4" style={{ fontFamily: styles.fonts.text }}>
@@ -29,7 +30,7 @@ export const EditVideoComponent = () => {
                         placeholder={selectVideo.video.review}
                         value={videoReview}
                         className="border-2 w-64 rounded-lg p-2"
-                        onChange={(event) => changeSetVideoReview(event.target.value)} 
+                        onChange={(event) => changeSetVideoReview(event.target.value)}
                         name="review"
                     />
 
@@ -46,7 +47,7 @@ export const EditVideoComponent = () => {
             </div>
 
             }
-
+            {userVideos.length === 0 && <h2 className="text-xl text-center mt-10 w-full" style={{ fontFamily: styles.fonts.text }}>{labels.noVideosFound}</h2>}
 
 
         </div>

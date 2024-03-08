@@ -11,12 +11,10 @@ export const useHomePageLogic = () => {
     const styles = useStyles();
     const [userVideos, setUserVideos] = useState<any[]>([]);
     const [allVideos, setAllVideos] = useState<any[]>([]);
-    const { startLoading, stopLoading } = useLoadingContext();
     const userData = useSelector((state: any) => state.auth.user);
     const navigate = useNavigate();
 
     const getVideos = async () => {
-        startLoading();
         if (userData) {
             await FirestoreMethods.searchStorageFile("videos", "autor", userData.username).then((response) => {
                 if (response.success) {
@@ -35,7 +33,6 @@ export const useHomePageLogic = () => {
                 console.error("Error buscando videos:", response.error);
             }
         });
-        stopLoading();
     }
 
 

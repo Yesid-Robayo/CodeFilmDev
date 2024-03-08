@@ -1,11 +1,11 @@
 import { useAddVideoLogic } from "./useAddVideoComponentLogic";
 
 export const AddVideoComponent = () => {
-    const { labels, styles, videoDetails, handleInputChange, handleVideoChange, errorMessage, handleAddVideo } = useAddVideoLogic();
+    const { labels, styles, videoDetails, handleInputChange, handleVideoChange, errorMessage, handleAddVideo,clearFields } = useAddVideoLogic();
     return (
         <div className="w-1/2 pb-10 h-full first-letter:pb-5 border-2 justify-center items-center rounded-3xl bg-white">
             <div className="flex justify-center items-center">
-            <div>
+                <div>
                     <h3 className="text-xl font-semibold border-b-2 pb-3 text-center mt-5" style={{ fontFamily: styles.fonts.primary, color: styles.colors["blue-500"] }}>{labels.addVideo}</h3>
                 </div>
             </div>
@@ -54,7 +54,7 @@ export const AddVideoComponent = () => {
                     type="file"
                     accept="video/*"
                     className="border-2 w-64 rounded-lg p-2"
-                    onChange={handleVideoChange}
+                    onChange={(event) => handleVideoChange(event)}
                     name="videoFile"
                 />
             </div>
@@ -82,9 +82,12 @@ export const AddVideoComponent = () => {
                 </div>
             </div>
             <p className="text-red-500 animate-enterFromBack h-5 text-sm text-center mt-2">{errorMessage}</p>
-            <div className="sm:flex sm:mt-5 flex-row text-center justify-center items-center w-full mt-2" style={{ fontFamily: styles.fonts.text }}>
+            <div className="sm:flex sm:mt-5 flex flex-col text-center justify-center items-center w-full mt-2" style={{ fontFamily: styles.fonts.text }}>
                 <button className="block sm:inline-block mx-auto sm:mx-0 text-white p-3 rounded-full mr-2" style={{ backgroundColor: styles.colors["blue-500"] }} onClick={handleAddVideo}>
                     {labels.addVideo}
+                </button>
+                <button className="block sm:inline-block mx-auto mt-4 sm:mx-0 text-white bg-gray-600 p-3 rounded-full mr-2"  onClick={clearFields}>
+                    {labels.clear}
                 </button>
             </div>
         </div>

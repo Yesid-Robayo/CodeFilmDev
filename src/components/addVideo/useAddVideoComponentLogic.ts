@@ -44,7 +44,7 @@ export const useAddVideoLogic = () => {
                 const context = canvas.getContext('2d');
 
                 if (context) {
-                    video.currentTime = 0;
+                    video.currentTime = 20;
                     video.onseeked = () => {
                         context.drawImage(video, 0, 0, canvas.width, canvas.height);
                         canvas.toBlob(blob => {
@@ -139,8 +139,19 @@ export const useAddVideoLogic = () => {
         stopLoading();
     };
 
+    const clearFields = () => {
+        setVideoDetails({
+            name: '',
+            review: '',
+            category: '',
+            thumbnail: null,
+            videoFile: null,
+        });
+        setErrorMessage('');
+    }
     return {
         videoDetails,
+        clearFields,
         labels,
         styles,
         errorMessage,

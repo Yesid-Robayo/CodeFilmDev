@@ -9,7 +9,6 @@ export const useAllVideosPageLogic = () => {
     const labels = useLabels();
     
     const [allVideos, setAllVideos] = useState<any[]>([]);
-    const { startLoading, stopLoading } = useLoadingContext();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -21,7 +20,6 @@ export const useAllVideosPageLogic = () => {
     });
 
     const getVideos = async () => {
-        startLoading();
         await FirestoreMethods.getAllStorage("videos").then((response) => {
             if (response.success) {
                 setAllVideos(response.data);
@@ -29,7 +27,6 @@ export const useAllVideosPageLogic = () => {
                 console.error("Error buscando videos:", response.error);
             }
         });
-        stopLoading();
     };
 
     useEffect(() => {

@@ -8,8 +8,6 @@ export const useCategoriesPageLogic = () => {
     const styles = useStyles();
     const labels = useLabels();
     const [userVideos, setUserVideos] = useState<any[]>([]);
-    const { startLoading, stopLoading } = useLoadingContext();
-    const userData = useSelector((state: any) => state.auth.user);
     const navigate = useNavigate();
     const filterVideosByCategory = (category: string) => {
         return userVideos.filter(video => video.data.category === category);
@@ -33,7 +31,6 @@ export const useCategoriesPageLogic = () => {
 
 
     const getVideos = async () => {
-        startLoading();
         await FirestoreMethods.getAllStorage("videos").then((response) => {
             if (response.success) {
                 setUserVideos(response.data);
@@ -41,7 +38,6 @@ export const useCategoriesPageLogic = () => {
                 console.error("Error buscando videos:", response.error);
             }
         });
-        stopLoading();
     };
 
     useEffect(() => {

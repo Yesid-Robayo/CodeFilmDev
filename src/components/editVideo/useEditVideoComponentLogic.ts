@@ -8,7 +8,6 @@ export const useEditVideoComponentLogic = () => {
     const styles = useStyles();
 
     const labels = useLabels();
-    const { startLoading, stopLoading } = useLoadingContext();
     const userData = useSelector((state: any) => state.auth.user);
     const [userVideos, setUserVideos] = useState<any[]>([]);
     const [selectVideo, setSelectVideo] = useState<any>(null);
@@ -19,7 +18,6 @@ export const useEditVideoComponentLogic = () => {
     }
     const changeVideoReview = async () => {
         if (videoReview === "") return;
-        startLoading();
         await FirestoreMethods.updateStorageFile("videos", selectVideo.id, { review: videoReview }).then((response) => {
             if (response.success) {
                 getVideos();
@@ -30,7 +28,6 @@ export const useEditVideoComponentLogic = () => {
                 console.error("Error actualizando video:", response.error);
             }
         });
-        stopLoading();
     }
     const selectedVideo = (video: any, id: string) => {
         setSelectVideo({ video, id });
@@ -40,7 +37,6 @@ export const useEditVideoComponentLogic = () => {
         getVideos();
     }, []);
     const getVideos = async () => {
-        startLoading();
         await FirestoreMethods.searchStorageFile("videos", "autor", userData.username).then((response) => {
             if (response.success) {
                 setUserVideos(response.data);
@@ -48,7 +44,6 @@ export const useEditVideoComponentLogic = () => {
                 console.error("Error buscando videos:", response.error);
             }
         });
-        stopLoading();
     }
     return {
         labels,

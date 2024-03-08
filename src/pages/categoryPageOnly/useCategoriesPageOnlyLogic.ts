@@ -17,12 +17,10 @@ export const useCategoriesPageOnlyLogic = (categoryKey: any) => {
         romance: labels.categoryRomance,
     };
     const [userVideos, setUserVideos] = useState<any[]>([]);
-    const { startLoading, stopLoading } = useLoadingContext();
     useEffect(() => {
         getVideos();
     }, []);
     const getVideos = async () => {
-        startLoading();
         await FirestoreMethods.getAllStorage("videos").then((response) => {
             if (response.success) {
                 setUserVideos(response.data);
@@ -30,7 +28,6 @@ export const useCategoriesPageOnlyLogic = (categoryKey: any) => {
                 console.error("Error buscando videos:", response.error);
             }
         });
-        stopLoading();
     }
     const navigateToVideo = (videoId: string) => {
         navigate(`/video/${videoId}`);
