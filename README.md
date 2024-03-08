@@ -1,4 +1,4 @@
-##CodeFilmDev
+## CodeFilmDev
 
 ![logo](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/4d537c0d-94c0-4f43-9165-08c2052cce9d)
 
@@ -20,7 +20,7 @@ Este proyecto aprovecha el poder de las tecnologías de vanguardia en el desarro
 
 Los usuarios pueden interactuar libremente con el contenido, aprovechando un sistema completo de CRUD (Crear, Leer, Actualizar, Eliminar) para administrar películas y perfiles de usuario. Esto facilita la gestión de contenido y fomenta una comunidad activa y participativa.
 
-![crud videos](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/7820c86b-8f57-4cd7-bde9-e564ee9dcddc)
+![crud videos](https://github.com/Yesid-Robayo/CodeFilmDev/assets/114313044/d3f9009d-48ab-42c4-ad33-0acda71538aa)
 
 
 ### Cambio de Idioma
