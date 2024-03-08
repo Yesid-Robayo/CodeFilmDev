@@ -1,23 +1,26 @@
 import { useParams } from 'react-router-dom';
 import { useVideoPageLogic } from './useVideoPageLogic';
+import ReactPlayer from 'react-player';
 
 export function VideoPage() {
     const { videoId }: any = useParams();
-    const { videoDetails, relatedVideos, navigateToVideo,styles, labels } = useVideoPageLogic(videoId);
-
+    const { videoDetails, relatedVideos, navigateToVideo, styles, labels } = useVideoPageLogic(videoId);
     return (
         <div className="w-full min-h-screen p-10 flex flex-col items-center justify-center" style={{ backgroundColor: styles.colors['blue-100'] }}>
-            <div className='bg-white min-h-96 animate-enterFromLeft pb-2 rounded-3xl w-full '>
+            <div className={`bg-white min-h-96 animate-enterFromLeft  pb-2 rounded-3xl w-full `}>
                 <div className="mx-auto ">
                     {videoDetails ? <div className="  grid grid-cols-1 lg:grid-cols-3 p-10 " style={{ fontFamily: styles.fonts.text }}>
                         <div className="lg:col-span-2 lg:mr-5">
 
                             <div className='w-full justify-center items-center flex'>
-                            <video controls className="rounded-lg " style={{  maxWidth: '100%' ,height:'100%'}}>
-                                    <source src={videoDetails.videoURL} type="video/mp4" />
-                                    Your browser does not support the video tag.
-                                </video>
 
+                            <ReactPlayer
+                                    url={videoDetails.videoURL}
+                                    controls
+                                    className="react-player rounded-lg"
+                                    width="100%"
+                                    height="100%"
+                                />
 
                             </div>
                             <div className=' mt-5' style={{ fontFamily: styles.fonts.primary }}>
@@ -43,7 +46,7 @@ export function VideoPage() {
                                     <div key={video.id}
                                         onClick={() => navigateToVideo(video.id)}
                                         className="cursor-pointer rounded-lg p-3 flex">
-                                        <img src={video.data.thumbnailURL} alt="Thumbnail" className="rounded-lg w-80 h-40 lg:h-28 lg:w-60" />
+                                        {video.data.thumbnailURL ? <img src={video.data.thumbnailURL} alt={video.data.name} className="w-60 h-34 rounded-lg" /> : <div className="w-60 h-34 bg-gray-300 rounded-lg"></div>}
                                         <div className='flex w-40 flex-col mx-3 pt-2'>
                                             <h3 className="text-md font-semibold ">{video.data.name}</h3>
 
@@ -53,7 +56,7 @@ export function VideoPage() {
                                 ))}
                             </div>
                         </div>
-                    </div> : <div className="flex justify-center items-center h-96">
+                    </div> : <div className="flex justify-center animate-enterFromBack items-center h-96">
                         <h2 className='text-xl' style={{ fontFamily: styles.fonts.text }}>{labels.noVideoFoundOnly}</h2>
                     </div>}
                 </div>

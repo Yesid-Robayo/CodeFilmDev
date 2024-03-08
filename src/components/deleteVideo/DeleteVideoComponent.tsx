@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDeleteVideoComponentLogic } from "./useDeleteVideoComponentLogic";
 import ConfirmationModal from '../../modals/ConfirmationModal';
+import ReactPlayer from 'react-player';
 
 export const DeleteVideoComponent = () => {
     const { labels, styles, userVideos, handleDeleteConfirm, handleDeleteCancel, handleDeleteConfirmation, showConfirmation } = useDeleteVideoComponentLogic();
@@ -15,27 +16,33 @@ export const DeleteVideoComponent = () => {
                 {userVideos.map((data) => {
                     return (
                         <div key={data.id} className="flex my-10 flex-col items-center justify-center">
-                            <h1 className="mb-4" style={{ fontFamily: styles.fonts.text }}>{data.data.name}</h1>
-                            <video controls className="w-1/2 mb-3 h-1/2" src={data.data.videoURL} />
-                            <button className="rounded-full bg-red-500 text-white w-1/2 h-10"
+                            <h1 className="mb-4 w-10/12 text-center h-10" style={{ fontFamily: styles.fonts.text }}>{data.data.name}</h1>
+                            <ReactPlayer
+                               url={data.data.videoURL}
+                               controls
+                               className="react-player rounded-lg"
+                               width="20rem"
+                               height="10rem"
+                           />
+                            <button className="rounded-full mt-4 bg-red-500 text-white w-1/2 h-10"
                                 onClick={() => handleDeleteConfirmation(data)}
                                 style={{ fontFamily: styles.fonts.text }}>{labels.deletevideo}</button>
                         </div>
                     )
                 })}
-              
+
             </div>
 
             {userVideos.length === 0 && <h2 className="text-xl text-center mt-10 w-full" style={{ fontFamily: styles.fonts.text }}>{labels.noVideosFound}</h2>}
-                <ConfirmationModal
-                    message={labels.sureDeleteVideo}
-                    showConfirmation={showConfirmation}
-                    labels={labels}
-                    handleDeleteConfirm={handleDeleteConfirm}
-                    handleDeleteCancel={handleDeleteCancel}
-                    styles={styles}
-                />
-          
+            <ConfirmationModal
+                message={labels.sureDeleteVideo}
+                showConfirmation={showConfirmation}
+                labels={labels}
+                handleDeleteConfirm={handleDeleteConfirm}
+                handleDeleteCancel={handleDeleteCancel}
+                styles={styles}
+            />
+
         </div>
     )
 }

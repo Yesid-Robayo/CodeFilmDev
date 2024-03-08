@@ -1,3 +1,4 @@
+import ReactPlayer from "react-player";
 import { useEditVideoComponentLogic } from "./useEditVideoComponentLogic";
 
 export const EditVideoComponent = () => {
@@ -11,9 +12,16 @@ export const EditVideoComponent = () => {
                 {userVideos.map((data) => {
                     return (
                         <div key={data.id} className="flex my-10 flex-col items-center justify-center">
-                            <h1 className="mb-4" style={{ fontFamily: styles.fonts.text }}>{data.data.name}</h1>
-                            <video controls className="w-1/2 mb-3 h-1/2" src={data.data.videoURL} />
-                            <button className=" rounded-3xl  text-white w-1/2 h-10" onClick={() => selectedVideo(data.data, data.id)} style={{ fontFamily: styles.fonts.text, backgroundColor: styles.colors["blue-500"] }}>{labels.edit}</button>
+                            <h1 className="mb-4 w-10/12 text-center h-10" style={{ fontFamily: styles.fonts.text }}>{data.data.name}</h1>
+                           
+                            <ReactPlayer
+                               url={data.data.videoURL}
+                               controls
+                               className="react-player rounded-lg"
+                               width="20rem"
+                               height="10rem"
+                           />
+                            <button className=" rounded-3xl mt-5  text-white w-1/2 h-10" onClick={() => selectedVideo(data.data, data.id)} style={{ fontFamily: styles.fonts.text, backgroundColor: styles.colors["blue-500"] }}>{labels.edit}</button>
                         </div>
                     )
                 })}
@@ -36,7 +44,13 @@ export const EditVideoComponent = () => {
 
                 </div>
                 <div className="w-full p-5 mt-5 justify-center items-center">
-                    <video controls className="" src={selectVideo.video.videoURL} />
+                    <ReactPlayer
+                                url={selectVideo.video.videoURL}
+                                controls
+                                className="react-player rounded-lg"
+                                width="100%"
+                                height="100%"
+                            />
                 </div>
 
                 <div className="sm:flex sm:mt-5 flex-row text-center justify-center items-center w-full mt-2" style={{ fontFamily: styles.fonts.text }}>

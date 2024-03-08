@@ -1,7 +1,8 @@
+import ReactPlayer from "react-player";
 import { useAddVideoLogic } from "./useAddVideoComponentLogic";
 
 export const AddVideoComponent = () => {
-    const { labels, styles, videoDetails, handleInputChange, handleVideoChange, errorMessage, handleAddVideo,clearFields } = useAddVideoLogic();
+    const { labels, styles, videoDetails, handleInputChange, handleVideoChange, errorMessage, handleAddVideo, clearFields } = useAddVideoLogic();
     return (
         <div className="w-1/2 pb-10 h-full first-letter:pb-5 border-2 justify-center items-center rounded-3xl bg-white">
             <div className="flex justify-center items-center">
@@ -64,10 +65,14 @@ export const AddVideoComponent = () => {
                     {!videoDetails.videoFile ? (
                         <div className='h-40 w-40 bg-gray-200 animate-pulse'></div>
                     ) : (
-                        <video controls className="mt-3" >
-                            <source src={URL.createObjectURL(videoDetails.videoFile)} type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+
+                        <ReactPlayer
+                            url={URL.createObjectURL(videoDetails.videoFile)}
+                            controls
+                            className="react-player rounded-lg"
+                            width="100%"
+                            height="100%"
+                        />
                     )}
                 </div>
             </div>
@@ -75,9 +80,9 @@ export const AddVideoComponent = () => {
                 <h4 className="mb-2">{labels.thumbnail}</h4>
                 <div className='w-full justify-center items-center flex'>
                     {!videoDetails.thumbnail ? (
-                        <div className='h-40 w-40 bg-gray-200 animate-pulse'></div>
+                        <div className='h-40 w-80 bg-gray-200 animate-pulse'></div>
                     ) : (
-                        <img className='h-40 w-40 bg-red-900' src={URL.createObjectURL(videoDetails.thumbnail)} alt="Thumbnail" />
+                        <img className='h-40 w-80 ' src={URL.createObjectURL(videoDetails.thumbnail)} alt="Thumbnail" />
                     )}
                 </div>
             </div>
@@ -86,7 +91,7 @@ export const AddVideoComponent = () => {
                 <button className="block sm:inline-block mx-auto sm:mx-0 text-white p-3 rounded-full mr-2" style={{ backgroundColor: styles.colors["blue-500"] }} onClick={handleAddVideo}>
                     {labels.addVideo}
                 </button>
-                <button className="block sm:inline-block mx-auto mt-4 sm:mx-0 text-white bg-gray-600 p-3 rounded-full mr-2"  onClick={clearFields}>
+                <button className="block sm:inline-block mx-auto mt-4 sm:mx-0 text-white bg-gray-600 p-3 rounded-full mr-2" onClick={clearFields}>
                     {labels.clear}
                 </button>
             </div>

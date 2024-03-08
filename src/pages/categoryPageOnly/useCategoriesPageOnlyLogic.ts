@@ -36,7 +36,6 @@ export const useCategoriesPageOnlyLogic = (categoryKey: any) => {
         return userVideos.filter(video => video.data.category === category);
     };
     const selectedCategoryLabel = categoriesLabels[categoryKey];
-    console.log("selectedCategoryLabel", categoryKey);
 
 
 
