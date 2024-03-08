@@ -4,6 +4,7 @@ export const LABELS_ES = {
     add: 'Agregar',
     allVideos: 'Todos los Videos',
     autor: 'Autor: ',
+    accept: 'Aceptar',
     alReadyExistUserName: 'Ya existe un usuario con ese nombre',
     alReadyExistEmail: 'Ya existe un usuario con ese correo',
     alReadyVideoName: 'Ya existe un video con ese nombre',
@@ -11,7 +12,9 @@ export const LABELS_ES = {
     /* ------------------B------------- */
     /* ------------------C------------- */
     categories: 'Categorias',
+    correctDeleteAccount: 'Eliminar Cuenta Correcto',
     cancel: 'Cancelar',
+    changeCorrect: 'Cambio de contraseña correcto',
     creationVideoCorrect: 'Video creado exitosamente',
     completeAllFields: 'Complete todos los campos',
     creationUserCorrect: 'Usuario creado exitosamente',
@@ -23,9 +26,14 @@ export const LABELS_ES = {
     categoryRomance: 'Romance',
     categoryDocumentary: 'Documental',
     categoryScienceFiction: 'Ciencia Ficción',
+    currentPass: 'Contraseña Actual',
+    confirmNewPassword: 'Confirmar Nueva Contraseña',
+    changePassword: 'Cambiar Contraseña',
     /* ------------------D------------- */
     dateOfBirth: 'Fecha de Nacimiento',
+    deleteCorrectAccount: 'Cuenta eliminada correctamente',
     deletevideo: 'Eliminar Video',
+    deleteAccount: 'Eliminar Cuenta',
     delete: 'Eliminar',
     deleteVideoCorrect: 'Video eliminado correctamente',
     deleteVideoError: 'Error al eliminar el video',
@@ -58,10 +66,13 @@ export const LABELS_ES = {
     missingFields: 'Faltan campos por completar',
     /* ------------------N------------- */
     name: 'Nombre',
+    newPassDontMatch: 'Las nuevas contraseñas no coinciden',
+    noVideosFound: 'No se encontraron videos',
     noVideosFoundForCategory: 'No se encontraron videos para esta categoria',
     notGetCanvas: 'No se pudo obtener el contexto del canvas',
     notMatchpass: 'Las contraseñas no coinciden',
     newpass: 'Nueva Contraseña',
+    noVideoFoundOnly: 'No se encontró el video',
     namePage: 'Code Film Dev',
     notVideoFileCarge: 'No se pudo cargar el archivo de video',
     /* ------------------O------------- */
@@ -73,6 +84,8 @@ export const LABELS_ES = {
     /* ------------------R------------- */
     /* ------------------S------------- */
     singUpHere: 'Registrate Aquí',
+    sureDeleteAccount: '¿Estas seguro de eliminar tu cuenta?',
+    sureChangePass: '¿Estas seguro de cambiar tu contraseña?',
     settings: 'Configuraciones',
     showMore: 'Ver Más',
     showLess: 'Ver Menos',

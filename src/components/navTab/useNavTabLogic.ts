@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { languageReducer } from "../../redux/reducers/utilsReducer";
 import { authReducer } from "../../redux/reducers/authReducer";
 import { useLabels, useStyles } from "../../hooks/contextHooks";
+import { routes } from "../../utils/utilsTypes";
 
 export const useNavTabLogic = () => {
     const labels = useLabels();
@@ -20,16 +21,13 @@ export const useNavTabLogic = () => {
     const dispatch = useDispatch();
     const menuRef: any = useRef(null);
 
+
     const changeLanguaje = (languaje: string) => {
         setIsOpenDrop(false);
         dispatch(languageReducer.actions.setLanguaje(languaje))
     };
     const changeDrop = () => {
         setIsOpenDrop(!isOpenDrop)
-    }
-    const goVideos = () => {
-        navigate('/videos');
-        setIsMenuOpen(false);
     }
     const changeDropAndMenu = () => {
         setIsMenuOpen(!isMenuOpen); setIsOpenDrop(false)
@@ -38,27 +36,17 @@ export const useNavTabLogic = () => {
         setIsMenuOpenAccount(!isMenuOpenAccount);
         setIsOpenDrop(false)
     }
-    const goHome = () => {
-        navigate('/home');
-        setIsMenuOpen(false);
-    };
-    const goCategories = () => {
-        navigate('/categories');
+    const navigateAll = (path: routes) => {
+        navigate(path);
+        setIsMenuOpenAccount(false);
         setIsMenuOpen(false);
     }
-    const goMyVideos = () => {
-        navigate('/myVideos');
-        setIsMenuOpen(false);
-    }
-    const goAllVideos = () => {
-        navigate('/allVideos');
-        setIsMenuOpen(false);
-    }
-    const openLogin = () => {
-        navigate('/login'); setIsMenuOpen(false)
-    }
+
     const closeSesion = () => {
-        dispatch(authReducer.actions.logOut()); setIsMenuOpenAccount(false);
+        navigate('/home');
+        dispatch(authReducer.actions.logOut());
+
+        setIsMenuOpenAccount(false);
     }
     useEffect(() => {
         const handleResize = () => {
@@ -95,21 +83,16 @@ export const useNavTabLogic = () => {
     return {
         labels,
         styles,
-        goVideos,
         changeDrop,
-        goHome,
         changeDropAndMenu,
         isAutenticated,
         isLogin,
         closeSesion,
         menuRef,
-        goAllVideos,
-        goMyVideos,
-        goCategories,
         isMenuOpenAccount,
         isMenuOpen,
         isMobile,
-        openLogin,
+        navigateAll,
         changeLanguaje,
         changeOpenAccount,
         isOpenDrop

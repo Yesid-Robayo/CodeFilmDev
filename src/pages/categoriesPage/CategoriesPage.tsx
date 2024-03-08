@@ -3,37 +3,14 @@ import { useCategoriesPageLogic } from './useCategoriesPageLogic';
 import { useNavigate } from 'react-router-dom';
 
 export function CategoriesPage() {
-    const navigation = useNavigate();
-    const { styles, labels, filterVideosByCategory } = useCategoriesPageLogic();
+    const { styles, labels, filterVideosByCategory,categoriesWithoutVideos,categoriesWithVideos,categoriesLabels,navigateToVideo,navigateToCategory } = useCategoriesPageLogic();
 
-    const categoriesLabels: any = {
-        action: labels.categoryAction,
-        comedy: labels.categoryComedy,
-        horror: labels.categoryHorror,
-        drama: labels.categoryDrama,
-        documentary: labels.categoryDocumentary,
-        sciencefiction: labels.categoryScienceFiction,
-        romance: labels.categoryRomance,
-    };
-
-    const navigateToVideo = (videoId: string) => {
-        navigation(`/video/${videoId}`);
-    }
-
-    const categoriesWithVideos = Object.keys(categoriesLabels).filter(categoryKey => filterVideosByCategory(categoryKey).length > 0);
-    const categoriesWithoutVideos = Object.keys(categoriesLabels).filter(categoryKey => filterVideosByCategory(categoryKey).length === 0);
-
-    // Función para navegar a la categoría correspondiente
-    const navigateToCategory = (categoryKey: string) => {
-        navigation(`/category/${categoryKey}`);
-    };
-
+ 
     return (
         <div className="w-full p-10 flex flex-col items-center justify-center" style={{ backgroundColor: styles.colors['blue-100'] }}>
-            <div className='bg-white min-h-96 pb-10 rounded-3xl w-full '>
+            <div className='bg-white animate-enterFromLeft min-h-96 pb-10 rounded-3xl w-full '>
                 <h1 className="text-3xl mt-5 font-bold text-center mb-8" style={{ fontFamily: styles.fonts.primary, color: styles.colors['blue-500'] }}>{labels.categories}</h1>
 
-                {/* Renderizar las categorías con videos */}
                 {categoriesWithVideos.map(categoryKey => (
                     <div key={categoryKey} className="max-w-5xl mx-auto mt-8">
                         <div className='flex justify-center'>
@@ -66,7 +43,6 @@ export function CategoriesPage() {
                     </div>
                 ))}
 
-                {/* Renderizar las categorías sin videos */}
                 {categoriesWithoutVideos.map(categoryKey => (
                     <div key={categoryKey} className="max-w-5xl mx-auto mt-8">
                         <div className='flex justify-center'>

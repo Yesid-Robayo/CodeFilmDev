@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLabels, useLoadingContext, useStyles } from "../../hooks/contextHooks";
 import { useSelector } from "react-redux";
 import { FirestoreMethods } from "../../services/fireBaseMethods";
+import { useNavigate } from "react-router-dom";
 
 export const useCategoriesPageLogic = () => {
     const styles = useStyles();
@@ -9,6 +10,27 @@ export const useCategoriesPageLogic = () => {
     const [userVideos, setUserVideos] = useState<any[]>([]);
     const { startLoading, stopLoading } = useLoadingContext();
     const userData = useSelector((state: any) => state.auth.user);
+    const navigate = useNavigate();
+    const filterVideosByCategory = (category: string) => {
+        return userVideos.filter(video => video.data.category === category);
+    };
+
+    const navigateToVideo = (videoId: string) => {
+        navigate(`/video/${videoId}`);
+    }
+    const navigateToCategory = (categoryKey: string) => {
+        navigate(`/category/${categoryKey}`);
+    };
+    const categoriesLabels: any = {
+        action: labels.categoryAction,
+        comedy: labels.categoryComedy,
+        horror: labels.categoryHorror,
+        drama: labels.categoryDrama,
+        documentary: labels.categoryDocumentary,
+        sciencefiction: labels.categoryScienceFiction,
+        romance: labels.categoryRomance,
+    };
+
 
     const getVideos = async () => {
         startLoading();
@@ -26,16 +48,20 @@ export const useCategoriesPageLogic = () => {
         getVideos();
     }, []);
 
-    const filterVideosByCategory = (category: string) => {
-        console.log('category', category);
-        console.log('userVideos', userVideos.filter(video => video.data.category === category));
-        return userVideos.filter(video => video.data.category === category);
-    };
+
+    const categoriesWithVideos = Object.keys(categoriesLabels).filter(categoryKey => filterVideosByCategory(categoryKey).length > 0);
+    const categoriesWithoutVideos = Object.keys(categoriesLabels).filter(categoryKey => filterVideosByCategory(categoryKey).length === 0);
+
 
     return {
         labels,
         styles,
         userVideos,
-        filterVideosByCategory
+        filterVideosByCategory,
+        categoriesWithoutVideos,
+        categoriesWithVideos,
+        navigateToCategory,
+        categoriesLabels,
+        navigateToVideo
     };
 };

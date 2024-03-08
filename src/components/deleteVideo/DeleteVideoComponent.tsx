@@ -27,6 +27,7 @@ export const DeleteVideoComponent = () => {
 
            
                 <ConfirmationModal
+                    message={labels.sureDeleteVideo}
                     showConfirmation={showConfirmation}
                     labels={labels}
                     handleDeleteConfirm={handleDeleteConfirm}

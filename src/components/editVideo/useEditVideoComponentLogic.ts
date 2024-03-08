@@ -18,7 +18,6 @@ export const useEditVideoComponentLogic = () => {
         setvideoReview(value);
     }
     const changeVideoReview = async () => {
-        console.log("videoReview", videoReview);
         if (videoReview === "") return;
         startLoading();
         await FirestoreMethods.updateStorageFile("videos", selectVideo.id, { review: videoReview }).then((response) => {
