@@ -1,46 +1,74 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CodeFilmDev
 
-## Available Scripts
+![Logo](src/assets/images/CodeFilmDev.png)
 
-In the project directory, you can run:
+CodeFilmDev es una innovadora plataforma de interacción social para aficionados al cine, donde los usuarios pueden subir videos, dejar reseñas y explorar una amplia gama de categorías de películas. Desarrollado con el usuario final en mente, este proyecto está diseñado para ofrecer una experiencia dinámica y atractiva, permitiendo una gestión de contenido eficiente y participativa relacionada con el cine.
 
-### `npm start`
+## Tecnologías Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Este proyecto aprovecha el poder de las tecnologías de vanguardia en el desarrollo de aplicaciones web, utilizando:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **ReactJS (última versión):** Brindando una base sólida para construir una interfaz de usuario reactiva y eficiente.
+- **Redux Toolkit y Context API:** Para una gestión de estado sofisticada y eficiente a lo largo de la aplicación.
+- **Hooks:** Utilizados para encapsular la lógica de los componentes y reutilizar el estado y la lógica de manera efectiva.
+- **Firestore y Firebase:** Ofrecen un almacenamiento robusto y escalabilidad, además de una base de datos en tiempo real para una sincronización de datos sin esfuerzo.
+- **TypeScript:** Asegura un desarrollo más seguro y mantenible mediante la adición de tipos estáticos.
 
-### `npm test`
+## Características Principales
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### CRUD Completo para Usuarios y Películas
 
-### `npm run build`
+Los usuarios pueden interactuar libremente con el contenido, aprovechando un sistema completo de CRUD (Crear, Leer, Actualizar, Eliminar) para administrar películas y perfiles de usuario. Esto facilita la gestión de contenido y fomenta una comunidad activa y participativa.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Cambio de Idioma
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Diseñado para una audiencia global, CodeFilmDev incluye funcionalidades de cambio de idioma, permitiendo a los usuarios seleccionar su preferencia lingüística y disfrutar de una experiencia personalizada.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Estructura de Carpetas Organizada
 
-### `npm run eject`
+Una estructura de proyecto meticulosamente organizada distingue claramente entre la lógica de aplicación (*.ts) y la interfaz de usuario (*.tsx), mejorando así la legibilidad del código y facilitando la colaboración y el mantenimiento del proyecto.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Barra de Búsqueda
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Incorpora una barra de búsqueda intuitiva, permitiendo a los usuarios encontrar rápidamente películas y reseñas específicas. Esta herramienta mejora significativamente la navegabilidad y la usabilidad del sitio, haciendo que la experiencia del usuario sea fluida y directa.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Interfaz Amigable
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+La interfaz de usuario ha sido diseñada pensando en la facilidad de uso, ofreciendo una experiencia agradable y accesible. La navegación intuitiva, acompañada de un diseño atractivo, asegura que los usuarios de todos los niveles técnicos puedan disfrutar plenamente de las funcionalidades del sitio.
 
-## Learn More
+## Instalación
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Para poner en marcha CodeFilmDev en tu entorno local, sigue estos pasos:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clona el repositorio:**
+   ```bash
+   git clone https://github.com/Yesid-Robayo/CodeFilmDev.git
+   ```
+
+2. **Instala las dependencias:**
+   ```bash
+   cd CodeFilmDev
+   npm install
+   ```
+
+## Uso
+
+Ejecuta CodeFilmDev en tu máquina local con estos comandos:
+
+- **Para desarrollo:**
+  ```bash
+  npm run dev
+  ```
+
+- **Para producción:**
+  ```bash
+  npm run build
+  ```
+
+- **Para iniciar el servidor:**
+  ```bash
+  npm start
+  ```
+
+Explora y participa en la comunidad, subiendo videos, dejando reseñas y navegando por las distintas categorías de películas para descubrir o compartir tus favoritas.
