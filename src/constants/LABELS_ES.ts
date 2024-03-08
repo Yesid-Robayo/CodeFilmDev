@@ -75,7 +75,7 @@ export const LABELS_ES = {
     notMatchpass: 'Las contraseñas no coinciden',
     newpass: 'Nueva Contraseña',
     noVideoFoundOnly: 'No se encontró el video',
-    namePage: 'Code Film Dev',
+    namePage: 'CodeFilmDev',
     notVideoFileCarge: 'No se pudo cargar el archivo de video',
     /* ------------------O------------- */
     /* ------------------P------------- */

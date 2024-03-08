@@ -28,7 +28,7 @@ export const NavTab = () => {
                 }}
                     className={`cursor-pointer flex w-full justify-start ${isLogin ? 'w-full justify-center' : 'lg:w-3/5 lg:mr-20'} items-center`}>
                     <img src={imageCodeFilm} alt="CodeFilm" className="h-12 ml-4" />
-                    <h1 className='text-white ml-5 text-xl' style={{ fontFamily: styles.fonts.primary }}>{labels.namePage}</h1>
+                    <h1 className='text-white ml-5 text-2xl' style={{ fontFamily: styles.fonts.primary }}>{labels.namePage}</h1>
                 </div>
                 {!isLogin &&
                     <div className='flex justify-end w-full h-full'>
