@@ -40,6 +40,7 @@ export const useNavTabLogic = () => {
         navigate(path);
         setIsMenuOpenAccount(false);
         setIsMenuOpen(false);
+        setIsOpenDrop(false);
     }
 
     const closeSesion = () => {
